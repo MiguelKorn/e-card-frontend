@@ -1,0 +1,17 @@
+.dropholder {
+    width: 100%;
+    font: 18px arial;
+    color: black;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.dropdown.active + .dropdownMenu {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdownMenu {
+    display: none;
+}
