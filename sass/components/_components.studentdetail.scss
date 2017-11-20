@@ -1,0 +1,19 @@
+.studentDetail {
+  position: fixed;
+  height: 100%;
+  background: #333333;
+  width: 350px;
+  top: 0px;
+  right: -400px;
+  color: white;
+  padding: 5px;
+  transition: all .3s ease-in-out;
+
+  &__field {
+
+  }
+
+  &--visible {
+    right: 0px;
+  }
+}

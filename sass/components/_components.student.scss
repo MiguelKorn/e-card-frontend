@@ -1,0 +1,42 @@
+$margin: 5px;
+
+.student {
+  transition: 0.1s all ease-in-out;
+  background: #9da0a4;
+  width: 300px;
+  min-height: 10px;
+  margin-bottom: $margin;
+  color: black;
+  padding: $margin;
+  position: relative;
+  cursor: pointer;
+
+
+  &__name {
+    display: inline;
+    margin-right: $margin;
+  }
+
+  &__age {
+    display: inline;
+    background: black;
+    padding: $margin;
+    color: white;
+  }
+
+  &__delete {
+    position: absolute;
+    padding: $margin;
+    display: inline;
+    top: 0px;
+    right:0px;
+    cursor: pointer;
+    background: red;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+
+}
