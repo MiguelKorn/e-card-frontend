@@ -6,7 +6,8 @@ class Marker extends React.Component {
         super(props);
 
         this.state = {
-            x: this.props.x || 0
+            x: this.props.x || 0,
+            y: this.props.y || 0
         };
         this.isDragging = false;
     }
@@ -33,9 +34,10 @@ class Marker extends React.Component {
      * Function to start dragging
      * @param mouseX {number} The x position of the mouse on the screen
      */
-    startDrag(startPosition) {
+    startDrag(startPositionX,startPositionY) {
         this.isDragging = true;
-        this.lastMouseX = startPosition;
+        this.lastMouseX = startPositionX;
+        this.lastMouseY = startPositionY;
 
         document.addEventListener('mousemove', this.handleDrag, false);
     }
@@ -49,22 +51,26 @@ class Marker extends React.Component {
     };
 
     handleDrag = (e) => {
-        this.drag(e.pageX);
+        this.drag(e.pageX,e.pageY);
     };
 
     /**
      * Function to drag the marker
      * @param mouseX {number} The x position of the mouse on the screen
      */
-    drag(mouseX) {
-        let offset = mouseX - this.lastMouseX,
-            x = Math.max(0, this.state.x + offset);
+    drag(mouseX,mouseY) {
+        let offsetX = mouseX - this.lastMouseX,
+            x = Math.max(0, this.state.x + offsetX);
+        let offsetY = mouseY - this.lastMouseY,
+            y = Math.max(0, this.state.y + offsetY);
 
         this.setState({
-            x: x
+            x: x,
+            y: y
         });
 
         this.lastMouseX = mouseX;
+        this.lastMouseY = mouseY;
 
     }
 
@@ -73,12 +79,14 @@ class Marker extends React.Component {
         let {markerClass = "marker", label = "..."} = this.props;
 
         const style = {
-            left: this.state.x
+            left: this.state.x,
+            top: this.state.y,
+            position: 'absolute'
         };
 
         return (
             <div className={markerClass}
-                 onMouseDown={(e) => this.startDrag(e.pageX)}
+                 onMouseDown={(e) => this.startDrag(e.pageX,e.pageY)}
                  style={style}
             >
                 verplaats mij
