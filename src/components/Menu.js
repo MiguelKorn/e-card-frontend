@@ -21,6 +21,10 @@ class Menu extends React.Component {
             });
     }
 
+    handleAddMarker(item) {
+        return this.props.onAdd(item);
+    }
+
     showDropdownChunks() {
         return this.state.parts.map((part, i) => {
             return (
@@ -33,7 +37,7 @@ class Menu extends React.Component {
                     <ul className="dropdownMenu">
                         {part.items.map((item, i) => {
                             return (
-                                <li key={i}><img src={"Images/" + item.image} alt={item.name}/></li>
+                                <li key={i} onClick={()=>this.handleAddMarker(item)}><img src={"Images/" + item.image} alt={item.name}/></li>
                             )
                         })}
                     </ul>
