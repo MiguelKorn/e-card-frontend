@@ -25,11 +25,13 @@ class Menu extends React.Component {
         return this.state.parts.map((part, i) => {
             return (
                 <div className="dropholder" key={i}>
-                    <div className="dropdown" onClick={(e)=>{e.currentTarget.classList.toggle("active")}}>
+                    <div className="dropdown" onClick={(e) => {
+                        e.currentTarget.classList.toggle("active")
+                    }}>
                         <p>Select {part.type}</p>
                     </div>
                     <ul className="dropdownMenu">
-                        {part.items.map((item, i)=>{
+                        {part.items.map((item, i) => {
                             return (
                                 <li key={i}><img src={"Images/" + item.image} alt={item.name}/></li>
                             )
@@ -43,13 +45,7 @@ class Menu extends React.Component {
     render() {
         return (
             <div className="menu">
-                <div className="pure-g">
-                    <div className="nav pure-u-1-5">
-                        {this.showDropdownChunks()}
-                    </div>
-                    <div className="pure-u-4-5">
-                    </div>
-                </div>
+                {this.showDropdownChunks()}
             </div>
         )
     }

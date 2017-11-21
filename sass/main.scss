@@ -5,6 +5,7 @@
 /*
  | SETTINGS: base font size, colour palettes
  */
+@import 'settings/_settings.body';
 @import 'settings/_settings.font';
 
 /*
@@ -27,6 +28,7 @@
 /*
  | COMPONENTS
  */
+@import 'components/_components.card';
 @import 'components/_components.menu';
 
 /*
