@@ -25,13 +25,13 @@ class Menu extends React.Component {
         return this.state.parts.map((part, i) => {
             return (
                 <div className="dropholder" key={i}>
-                    <div className="dropdown">
+                    <div className="dropdown" onClick={(e)=>{e.currentTarget.classList.toggle("active")}}>
                         <p>Select {part.type}</p>
                     </div>
                     <ul className="dropdownMenu">
                         {part.items.map((item, i)=>{
                             return (
-                                <li key={i}><a href="#">{item.name}</a></li>
+                                <li key={i}><img src={"Images/" + item.image} alt={item.name}/></li>
                             )
                         })}
                     </ul>
